@@ -27,4 +27,33 @@ try {
     // Обработка ошибки подключения
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
+
+function get_chat($user1, $user2)
+{
+    global $pdo;
+    $sql = "SELECT chatID FROM chats WHERE  ((user1 = :user1 AND user2 = :user2) OR (user1 = :user2 AND user2 = :user1))";
+
+    $stmt = $pdo->prepare($sql);
+
+    // Привязка параметров и выполнение запроса
+    $stmt->execute(['user1' => $user1, 'user2' => $user2]);
+
+    $results = $stmt->fetchAll();
+    return $results;
+}
+
+function create_chat($user1, $user2)
+{
+    global $pdo;
+    // SQL запрос для вставки данных
+    $sql = "INSERT INTO chats (user1, user2) VALUES (:user1, :user2)";
+
+    // Подготовка SQL запроса
+    $stmt = $pdo->prepare($sql);
+
+    // Привязка параметров и выполнение запроса
+    $stmt->execute(['user1' => $user1, 'user2' => $user2]);
+    $chatId = $pdo->lastInsertId();
+    return $chatId;
+}
 ?>

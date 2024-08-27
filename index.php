@@ -45,34 +45,14 @@
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             include("pdo.php");
 
-            $sql = "SELECT chatID FROM chats WHERE  ((user1 = :user1 AND user2 = :user2) OR (user1 = :user2 AND user2 = :user1))";
-
-            $stmt = $pdo->prepare($sql);
-
             // Данные для вставки
             $user1 = $_POST["fromId"];
             $user2 = $_POST["toId"];
 
-            // Привязка параметров и выполнение запроса
-            $stmt->execute(['user1' => $user1, 'user2' => $user2]);
-
-            $results = $stmt->fetchAll();
-
+            $results = get_chat($user1, $user2);
 
             if (count($results) == 0) {
-                // SQL запрос для вставки данных
-                $sql = "INSERT INTO chats (user1, user2) VALUES (:user1, :user2)";
-
-                // Подготовка SQL запроса
-                $stmt = $pdo->prepare($sql);
-
-                // Данные для вставки
-                $user1 = $_POST["fromId"];
-                $user2 = $_POST["toId"];
-
-                // Привязка параметров и выполнение запроса
-                $stmt->execute(['user1' => $user1, 'user2' => $user2]);
-                $chatId = $pdo->lastInsertId();
+                $chatId = create_chat($user1, $user2);
             } else {
                 $chatId = $results[0]["chatID"];
             }
