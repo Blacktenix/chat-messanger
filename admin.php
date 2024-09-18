@@ -1,3 +1,6 @@
+<?php
+include("pdo.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +44,6 @@
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            include("pdo.php");
             $sql = "SELECT * FROM users";
             $stmt = $pdo->prepare($sql);
             var_dump($stmt->execute());
@@ -53,7 +55,7 @@
                 echo "<tr>";
                 echo "<td>" . $user["userID"] . "</td>";
                 echo "<td>" . $user["firstName"] . "</td>";
-                echo "<td>" . $user["LastName"] . "</td>";
+                echo "<td>" . $user["lastName"] . "</td>";
                 echo "<td>" . $user["dateOfBirth"] . "</td>";
                 echo "<td>" . $user["login"] . "</td>";
                 echo "<td>" . $user["password"] . "</td>";
@@ -72,13 +74,12 @@
         </tr>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            include("pdo.php");
             $sql = "SELECT * FROM chats";
             $stmt = $pdo->prepare($sql);
             var_dump($stmt->execute());
             $results = $stmt->fetchAll();
 
-            
+
             for ($i = 0; $i < count($results); $i++) {
                 $chat = $results[$i];
                 echo "<tr>";
@@ -87,11 +88,13 @@
                 echo "<td>" . $chat["user2"] . "</td>";
                 echo "</tr>";
             }
-            
         }
         ?>
     </table>
-
+    <?php
+    phpinfo();
+    ?>
 </body>
+
 
 </html>

@@ -39,7 +39,11 @@ function get_chat($user1, $user2)
     $stmt->execute(['user1' => $user1, 'user2' => $user2]);
 
     $results = $stmt->fetchAll();
-    return $results;
+    if (count($results) == 1) {
+        return $results[0];
+    } else {
+        return NULL;
+    }
 }
 
 function create_chat($user1, $user2)
@@ -56,4 +60,74 @@ function create_chat($user1, $user2)
     $chatId = $pdo->lastInsertId();
     return $chatId;
 }
+function add_message($user1, $user2, $chatId)
+{
+    global $pdo;
+    $sql = "SELECT MAX(messageID) FROM messages WHERE  ((userTo = :user1 AND userFrom = :user2) OR (userTo = :user2 AND userFrom = :user1)) AND chatID = :chatId";
+    $stmt = $pdo->prepare($sql);
+    $results = $stmt->fetchAll();
+    $messageId = $results[0]['MAX(messageID)'] + 1;
+
+    $sql = "INSERT INTO messages (messageID,chatID,message,userTo,userFrom) VALUES (:messageId,:chatId,:message,:user1,:user2);";
+    $stmt = $pdo->prepare($sql);
+    $message = $_POST["text"];
+    $stmt->execute(['messageId' => $messageId, 'chatId' => $chatId, 'message' => $message, 'user1' => $user1, 'user2' => $user2]);
+}
+function get_messages($user1, $user2, $chatId)
+{
+    global $pdo;
+    $sql = "SELECT * FROM messages WHERE  ((userTo = :user1 AND userFrom = :user2) OR (userTo = :user2 AND userFrom = :user1)) AND chatID = :chatId";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['user1' => $user1, 'user2' => $user2, 'chatId' => $chatId]);
+    $results = $stmt->fetchAll();
+    return $results;
+}
+
+function get_user($id)
+{
+    global $pdo;
+    $sql = "SELECT * FROM users WHERE userID = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $id]);
+    $results = $stmt->fetchAll();
+    if (count($results) == 1) {
+        return $results[0];
+    } else {
+        return NULL;
+    }
+}
+
+function get_chats_for_user($id)
+{
+    global $pdo;
+    $sql = "SELECT * FROM chats WHERE user1 = :id or user2 =:id";
+
+    $stmt = $pdo->prepare($sql);
+
+    // Привязка параметров и выполнение запроса
+    $stmt->execute(["id" => $id]);
+
+    $results = $stmt->fetchAll();
+    return $results;
+}
+
+function find_user($login, $password)
+{
+    global $pdo;
+    $sql = "SELECT * FROM user WHERE login = :login or password =:password";
+
+    $stmt = $pdo->prepare($sql);
+
+    // Привязка параметров и выполнение запроса
+    $stmt->execute(["login" => $login, "password" => $password]);
+
+    $results = $stmt->fetchAll();
+    if (count($results) == 1) {
+        return $results[0];
+    } else {
+        return NULL;
+    }
+
+}
+
 ?>

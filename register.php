@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include("pdo.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,6 @@
 
 <body>
     <?php
-    session_start();
     include("header.php");
     ?>
     <form action="register.php" method="post">
@@ -37,7 +40,7 @@
     </form>
     <?php
     // Настройки подключения к базе данных
-    include("pdo.php");
+    
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // SQL запрос для вставки данных
         $sql = "INSERT INTO users (firstName, lastName, dateOfBirth, `login`, `password`) VALUES (:firstName, :lastName, :dateOfBirth, :login, :password)";
@@ -46,7 +49,7 @@
         $stmt = $pdo->prepare($sql);
 
         // Данные для вставки
-        $name = $_POST["firstName"];
+        $name = $_POST["firstaNme"];
         $lname = $_POST["lastName"];
         $date = $_POST["dateOfBirth"];
         $login = $_POST["login"];

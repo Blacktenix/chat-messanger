@@ -1,3 +1,7 @@
+<?php
+session_start();
+include("pdo.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,6 @@
 
 <body>
     <?php
-    session_start();
     include("header.php");
     ?>
     <h1>First Name:<?php echo htmlspecialchars($_POST["firstName"]) ?></h1>
