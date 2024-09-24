@@ -60,7 +60,8 @@ include("pdo.php");
 
             if ($hide == "add") {
                 add_message($user1, $user2, $chatId);
-            } else {
+            } 
+            elseif ($hide == "view") {
                 $results = get_messages($user1, $user2, $chatId);
                 if ($results) {
 
@@ -71,6 +72,12 @@ include("pdo.php");
                     }
                 }
             }
+            elseif ($hide = "create_chat") {
+                $user1 = $_SESSION["id"];
+                $user2 = $_POST["username"];
+                $user2 = str_replace("@", "", $user2);
+                create_chat($user1, $user2);
+            }
             $results = get_chats_for_user($_SESSION["id"]);
             for ($i = 0; $i < count($results); $i++) {
                 $chat = $results[$i];
@@ -78,7 +85,16 @@ include("pdo.php");
             }
         }
         ?>
+        <button id="createChat">Создать чат</button>
+        <div id="modal">
+            <form method="post">
+                <input type = "hidden" name = "formAction" value="create_chat">
+                <input type="text" id="username" name="username" placeholder="@username" required>
+                <button type="submit">Создать чат</button>
+            </form>
+        </div>
     </div>
+    <script src="modal.js"></script>
 </body>
 
 </html>
