@@ -88,12 +88,12 @@ function get_messages($user1, $user2, $chatId)
     return $results;
 }
 
-function get_user($id)
+function get_user($login)
 {
     global $pdo;
-    $sql = "SELECT * FROM users WHERE userID = :id";
+    $sql = "SELECT * FROM users WHERE login = :login";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['id' => $id]);
+    $stmt->execute(['login' => $login]);
     $results = $stmt->fetchAll();
     if (count($results) == 1) {
         return $results[0];
@@ -102,15 +102,15 @@ function get_user($id)
     }
 }
 
-function get_chats_for_user($id)
+function get_chats_for_user($login)
 {
     global $pdo;
-    $sql = "SELECT * FROM chats WHERE user1 = :id or user2 =:id";
+    $sql = "SELECT * FROM chats WHERE user1 = :login or user2 =:login";
 
     $stmt = $pdo->prepare($sql);
 
     // Привязка параметров и выполнение запроса
-    $stmt->execute(["id" => $id]);
+    $stmt->execute(["login" => $login]);
 
     $results = $stmt->fetchAll();
     return $results;
@@ -133,5 +133,4 @@ function find_user($login, $password)
         return NULL;
     }
 }
-
 ?>

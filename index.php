@@ -3,7 +3,7 @@ session_start();
 include("pdo.php");
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -20,8 +20,8 @@ include("pdo.php");
         <input type="hidden" name="formAction" value="add">
         <h2>Add Messages</h2>
 
-        <label for="toId">toId:</label>
-        <input type="text" id="toId" name="toId" required><br><br>
+        <label for="toLogin">toLogin:</label>
+        <input type="text" id="toLogin" name="toLogin" required><br><br>
 
         <label for="text">text:</label><br>
         <textarea id="text" name="text" rows="4" cols="50" required></textarea><br><br>
@@ -33,8 +33,8 @@ include("pdo.php");
         <input type="hidden" name="formAction" value="view">
         <h2>View Messages</h2>
 
-        <label for="toId">toId:</label>
-        <input type="text" id="toId" name="toId" required><br><br>
+        <label for="toLogin">toLogin:</label>
+        <input type="text" id="toLogin" name="toLogin" required><br><br>
 
         <input type="submit">
     </form>
@@ -44,8 +44,8 @@ include("pdo.php");
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Данные для вставки
-            $user1 = $_SESSION["id"];
-            $user2 = $_POST["toId"];
+            $user1 = $_SESSION["login"];
+            $user2 = $_POST["toLogin"];
 
             $chat = get_chat($user1, $user2);
 
@@ -70,13 +70,13 @@ include("pdo.php");
                     }
                 }
             } elseif ($hide = "create_chat") {
-                $user1 = $_SESSION["id"];
+                $user1 = $_SESSION["login"];
                 $user2 = $_POST["username"];
                 $user2 = str_replace("@", "", $user2);
                 create_chat($user1, $user2);
             }
 
-            /* $results = get_chats_for_user($_SESSION["id"]);
+            /* $results = get_chats_for_user($_SESSION["login"]);
             for ($i = 0; $i < count($results); $i++) {
                 $chat = $results[$i];
                 echo "chat ID = " . $chat["chatID"] . ", " . "user1 = " . $chat["user1"] . ", " . "user2 = " . $chat["user2"];

@@ -29,7 +29,7 @@ include("pdo.php");
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = find_user($_POST["login"], $_POST["password"]);
         if ($user) {
-            $_SESSION["id"] = $user["userID"];
+            $_SESSION["login"] = $user["login"];
             header("Location:/user.php");
         } else {
             echo "<p class=\"error\">Incorrect Login or Password</p>";

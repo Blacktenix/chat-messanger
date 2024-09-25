@@ -34,7 +34,7 @@ include("pdo.php");
     <h2>Users</h2>
     <table>
         <tr>
-            <th>userID</th>
+            <th>login</th>
             <th>firstName</th>
             <th>LastName</th>
             <th>dateOfBirth</th>
@@ -55,11 +55,10 @@ include("pdo.php");
             for ($i = 0; $i < count($results); $i++) {
                 $user = $results[$i];
                 echo "<tr>";
-                echo "<td>" . $user["userID"] . "</td>";
+                echo "<td>" . $user["login"] . "</td>";
                 echo "<td>" . $user["firstName"] . "</td>";
                 echo "<td>" . $user["lastName"] . "</td>";
                 echo "<td>" . $user["dateOfBirth"] . "</td>";
-                echo "<td>" . $user["login"] . "</td>";
                 echo "<td>" . $user["password"] . "</td>";
                 echo "</tr>";
             }

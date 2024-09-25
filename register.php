@@ -56,9 +56,11 @@ include("pdo.php");
         $login = $_POST["login"];
         $password = $_POST["password"];
 
+        // TODO: проверка на то, существует ли уже такой юзер
+
         // Привязка параметров и выполнение запроса
         var_dump($stmt->execute(['firstName' => $name, 'lastName' => $lname, 'dateOfBirth' => $date, 'login' => $login, 'password' => $password]));
-        $_SESSION["id"] = $pdo->lastInsertId();
+        $_SESSION["login"] = $login;
         echo "Данные успешно вставлены!";
 
         header("Location:/user.php");

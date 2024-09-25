@@ -1,6 +1,6 @@
 <?php
-if (isset($_SESSION["id"])) {
-    $user = get_user($_SESSION["id"]);
+if (isset($_SESSION["login"])) {
+    $user = get_user($_SESSION["login"]);
 }
 ?>
 <header class="header">
