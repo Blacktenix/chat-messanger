@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("pdo.php");
 ?>
 <!DOCTYPE html>
@@ -7,6 +8,7 @@ include("pdo.php");
 <head>
     <meta charset="UTF-8">
     <title>Admin Page</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         table {
             width: 100%;
