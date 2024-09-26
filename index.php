@@ -3,12 +3,12 @@ session_start();
 include("pdo.php");
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отправка сообщения</title>
+    <title>Chat</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,10 +18,10 @@ include("pdo.php");
     ?>
     <form method="POST" action="">
         <input type="hidden" name="formAction" value="add">
-        <h2>Отправка сообщения</h2>
+        <h2>Add Messages</h2>
 
-        <label for="toId">toId:</label>
-        <input type="text" id="toId" name="toId" required><br><br>
+        <label for="toLogin">toLogin:</label>
+        <input type="text" id="toLogin" name="toLogin" required><br><br>
 
         <label for="text">text:</label><br>
         <textarea id="text" name="text" rows="4" cols="50" required></textarea><br><br>
@@ -31,10 +31,10 @@ include("pdo.php");
 
     <form method="POST" action="">
         <input type="hidden" name="formAction" value="view">
-        <h2>Просмотреть сообщения</h2>
+        <h2>View Messages</h2>
 
-        <label for="toId">toId:</label>
-        <input type="text" id="toId" name="toId" required><br><br>
+        <label for="toLogin">toLogin:</label>
+        <input type="text" id="toLogin" name="toLogin" required><br><br>
 
         <input type="submit">
     </form>
@@ -44,8 +44,8 @@ include("pdo.php");
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Данные для вставки
-            $user1 = $_SESSION["id"];
-            $user2 = $_POST["toId"];
+            $user1 = $_SESSION["login"];
+            $user2 = $_POST["toLogin"];
 
             $chat = get_chat($user1, $user2);
 
@@ -57,11 +57,9 @@ include("pdo.php");
 
             $hide = $_POST["formAction"];
 
-
             if ($hide == "add") {
                 add_message($user1, $user2, $chatId);
-            } 
-            elseif ($hide == "view") {
+            } elseif ($hide == "view") {
                 $results = get_messages($user1, $user2, $chatId);
                 if ($results) {
 
@@ -71,26 +69,34 @@ include("pdo.php");
                         echo "<div class='message $messageClass'><strong>" . htmlspecialchars($msg['userFrom']) . ":</strong> " . htmlspecialchars($msg['message']) . "</div>";
                     }
                 }
-            }
-            elseif ($hide = "create_chat") {
-                $user1 = $_SESSION["id"];
+            } elseif ($hide = "create_chat") {
+                $user1 = $_SESSION["login"];
                 $user2 = $_POST["username"];
                 $user2 = str_replace("@", "", $user2);
                 create_chat($user1, $user2);
             }
-            $results = get_chats_for_user($_SESSION["id"]);
+
+            /* $results = get_chats_for_user($_SESSION["login"]);
             for ($i = 0; $i < count($results); $i++) {
                 $chat = $results[$i];
                 echo "chat ID = " . $chat["chatID"] . ", " . "user1 = " . $chat["user1"] . ", " . "user2 = " . $chat["user2"];
-            }
+            } */
         }
         ?>
-        <button id="createChat">Создать чат</button>
-        <div id="modal">
+        <button id="createChat">Create Chat</button>
+    </div>
+
+    <!-- Create Chat Modal -->
+    <div id="modal">
+        <div class="modal-container">
             <form method="post">
-                <input type = "hidden" name = "formAction" value="create_chat">
-                <input type="text" id="username" name="username" placeholder="@username" required>
-                <button type="submit">Создать чат</button>
+                <div>
+                    <h2>Create Chat</h2>
+                </div>
+                <div> <input type="hidden" name="formAction" value="create_chat">
+                    <input type="text" id="username" name="username" placeholder="@username" required>
+                    <button type="submit">Create Chat</button>
+                </div>
             </form>
         </div>
     </div>

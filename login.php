@@ -8,12 +8,13 @@ include("pdo.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chat | Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <?php include("header.php") ?>
-    <form action="user.php" method="post">
+    <form class="sign-form" action="" method="post">
         <label for="login">Login</label>
         <br>
         <input type="text" name="login" id="login">
@@ -29,10 +30,9 @@ include("pdo.php");
         $user = find_user($_POST["login"], $_POST["password"]);
         if ($user) {
             $_SESSION["login"] = $user["login"];
-            $_SESSION["id"] = $user["userID"];
-            $_SESSION["password"] = $user["password"];
-
             header("Location:/user.php");
+        } else {
+            echo "<p class=\"error\">Incorrect Login or Password</p>";
         }
     }
     ?>
