@@ -82,6 +82,21 @@ include("pdo.php");
                 }
             }
         }
+
+        echo "<h1>My chats</h1>";
+
+        $login = $_SESSION["login"];
+        $chats = get_chats_for_user($login);
+
+        for ($i = 0; $i < count($chats); $i++) {
+            $chat = $chats[$i];
+            if ($chat["user1"] == $login) {
+                $toLogin = $chat['user2'];
+            } else {
+                $toLogin = $chat['user1'];
+            }
+            echo "<a href='index.php?toLogin=" . $toLogin . "'>" . $toLogin . "</a>";
+        }
         ?>
         <button id="createChat">Create Chat</button>
     </div>
