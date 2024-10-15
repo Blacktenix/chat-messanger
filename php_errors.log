@@ -567,3 +567,88 @@ Stack trace:
 [19-Sep-2024 20:24:54 Europe/Moscow] PHP Warning:  Undefined array key "login" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/header.php on line 16
 [19-Sep-2024 21:13:09 Europe/Moscow] PHP Warning:  Undefined array key "id" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/header.php on line 2
 [19-Sep-2024 21:13:09 Europe/Moscow] PHP Warning:  Undefined array key "login" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/header.php on line 16
+[03-Oct-2024 20:11:22 Europe/Moscow] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'where clause' in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/pdo.php:127
+Stack trace:
+#0 /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/pdo.php(127): PDOStatement->execute()
+#1 /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/login.php(30): find_user()
+#2 {main}
+  thrown in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/pdo.php on line 127
+[03-Oct-2024 20:22:33 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/user.php on line 23
+[03-Oct-2024 20:22:43 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/user.php on line 23
+[03-Oct-2024 20:22:45 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/user.php on line 23
+[08-Oct-2024 20:59:53 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 20:59:53 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 20:59:53 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 20:59:53 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 20:59:53 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 20:59:53 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 20:59:53 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:02:13 Europe/Moscow] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'field list' in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php:67
+Stack trace:
+#0 /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php(67): PDOStatement->execute()
+#1 {main}
+  thrown in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php on line 67
+[08-Oct-2024 21:03:13 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:13 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:13 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:13 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:13 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:13 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:13 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:16 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:16 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:16 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:16 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:16 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:16 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:03:16 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:04:20 Europe/Moscow] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'field list' in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php:67
+Stack trace:
+#0 /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php(67): PDOStatement->execute()
+#1 {main}
+  thrown in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php on line 67
+[08-Oct-2024 21:04:29 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:04:29 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:04:29 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:04:29 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:04:29 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:04:29 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:04:29 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:52 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:52 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:52 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:52 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:52 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:52 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:52 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:54 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:54 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:54 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:54 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:54 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:54 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:13:54 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:16 Europe/Moscow] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php:67
+Stack trace:
+#0 /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php(67): PDOStatement->execute()
+#1 {main}
+  thrown in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php on line 67
+[08-Oct-2024 21:15:17 Europe/Moscow] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php:67
+Stack trace:
+#0 /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php(67): PDOStatement->execute()
+#1 {main}
+  thrown in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php on line 67
+[08-Oct-2024 21:15:21 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:21 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:21 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:21 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:21 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:21 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:21 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:23 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:23 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:23 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:23 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:23 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:23 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[08-Oct-2024 21:15:23 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
