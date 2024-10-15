@@ -115,22 +115,3 @@ function get_chats_for_user($login)
     $results = $stmt->fetchAll();
     return $results;
 }
-
-function find_user($login, $password)
-{
-    global $pdo;
-    $sql = "SELECT * FROM users WHERE login = :login and password =:password";
-
-    $stmt = $pdo->prepare($sql);
-
-    // Привязка параметров и выполнение запроса
-    $stmt->execute(["login" => $login, "password" => $password]);
-
-    $results = $stmt->fetchAll();
-    if (count($results) == 1) {
-        return $results[0];
-    } else {
-        return NULL;
-    }
-}
-?>
