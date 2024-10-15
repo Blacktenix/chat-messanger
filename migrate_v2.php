@@ -84,10 +84,6 @@ try {
     // 11.Удалить сообщения с NULL значениями в любых колонках (сообщения с удаленными пользователями)
     $pdo->exec("DELETE FROM messages WHERE message IS NULL OR userTo IS NULL OR userFrom IS NULL;");
 
-    // 12. Удалить колонку userID из users
-    $pdo->exec("ALTER TABLE users DROP COLUMN userID");
-
-
     // ----------------------------------------
 
     // Commit the transaction

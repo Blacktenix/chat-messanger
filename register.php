@@ -58,8 +58,17 @@ include("pdo.php");
 
         // TODO: проверка на то, существует ли уже такой юзер
 
+        if (strlen($name) == 0 || strlen($name) > 50) {
+            header("Location:/register.php");
+            exit();
+        }
+        if (strlen($lname) == 0 || strlen($lname) > 50) {
+            header("Location:/register.php");
+            exit();
+        }
+
         // Привязка параметров и выполнение запроса
-        var_dump($stmt->execute(['firstName' => $name, 'lastName' => $lname, 'dateOfBirth' => $date, 'login' => $login, 'password' => $password]));
+        var_dump($stmt->execute(['firstName' => $name, 'lastName' => $lname, 'dateOfBirth' => $date, 'login' => $login, 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]));
         $_SESSION["login"] = $login;
         echo "Данные успешно вставлены!";
 
