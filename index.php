@@ -20,9 +20,6 @@ include("pdo.php");
         <input type="hidden" name="formAction" value="add">
         <h2>Add Messages</h2>
 
-        <label for="toLogin">toLogin:</label>
-        <input type="text" id="toLogin" name="toLogin" required><br><br>
-
         <label for="text">text:</label><br>
         <textarea id="text" name="text" rows="4" cols="50" required></textarea><br><br>
 
@@ -36,7 +33,7 @@ include("pdo.php");
 
             // Данные для вставки
             $user1 = $_SESSION["login"];
-            $user2 = $_POST["toLogin"];
+            $user2 = $_GET["toLogin"];
 
             $chat = get_chat($user1, $user2);
 

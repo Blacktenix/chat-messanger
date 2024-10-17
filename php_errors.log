@@ -652,3 +652,35 @@ Stack trace:
 [08-Oct-2024 21:15:23 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
 [08-Oct-2024 21:15:23 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
 [08-Oct-2024 21:15:23 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[15-Oct-2024 21:02:13 Europe/Moscow] PHP Warning:  Undefined array key "toLogin" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 19
+[15-Oct-2024 21:03:38 Europe/Moscow] PHP Warning:  Undefined array key "toLogin" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 19
+[15-Oct-2024 21:03:44 Europe/Moscow] PHP Warning:  Undefined array key "toLogin" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 19
+[15-Oct-2024 21:03:59 Europe/Moscow] PHP Warning:  Undefined array key "toLogin" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 19
+[15-Oct-2024 21:04:14 Europe/Moscow] PHP Warning:  Undefined array key "toLogin" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 19
+[15-Oct-2024 21:04:25 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[15-Oct-2024 21:04:25 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[15-Oct-2024 21:04:25 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[15-Oct-2024 21:04:25 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[15-Oct-2024 21:04:25 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[15-Oct-2024 21:04:25 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[15-Oct-2024 21:04:25 Europe/Moscow] PHP Warning:  Undefined array key "password" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/admin.php on line 62
+[15-Oct-2024 21:04:52 Europe/Moscow] PHP Warning:  Undefined array key "toLogin" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 19
+[15-Oct-2024 21:07:20 Europe/Moscow] PHP Warning:  Undefined array key "login" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 65
+[15-Oct-2024 21:07:20 Europe/Moscow] PHP Warning:  Trying to access array offset on value of type null in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 70
+[15-Oct-2024 21:07:42 Europe/Moscow] PHP Warning:  Undefined array key "login" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 35
+[15-Oct-2024 21:07:42 Europe/Moscow] PHP Warning:  Undefined array key "login" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 65
+[15-Oct-2024 21:07:42 Europe/Moscow] PHP Warning:  Trying to access array offset on value of type null in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 70
+[15-Oct-2024 21:07:58 Europe/Moscow] PHP Warning:  Undefined array key "login" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 35
+[15-Oct-2024 21:07:58 Europe/Moscow] PHP Warning:  Undefined array key "login" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 65
+[15-Oct-2024 21:07:58 Europe/Moscow] PHP Warning:  Trying to access array offset on value of type null in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 70
+[15-Oct-2024 21:07:58 Europe/Moscow] PHP Warning:  Undefined array key "login" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 35
+[15-Oct-2024 21:07:58 Europe/Moscow] PHP Warning:  Undefined array key "login" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 65
+[15-Oct-2024 21:07:58 Europe/Moscow] PHP Warning:  Trying to access array offset on value of type null in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 70
+[15-Oct-2024 21:09:42 Europe/Moscow] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php:71
+Stack trace:
+#0 /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php(71): PDOStatement->execute()
+#1 {main}
+  thrown in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/register.php on line 71
+[15-Oct-2024 21:10:17 Europe/Moscow] PHP Warning:  Undefined array key "login" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 35
+[15-Oct-2024 21:10:17 Europe/Moscow] PHP Warning:  Undefined array key "login" in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 65
+[15-Oct-2024 21:10:17 Europe/Moscow] PHP Warning:  Trying to access array offset on value of type null in /home/sla8ikk/Рабочий стол/sites/chat/chat-messanger/index.php on line 70
