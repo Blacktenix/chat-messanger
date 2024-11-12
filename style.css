@@ -127,3 +127,8 @@ input[type=submit] {
   margin-top: 5px;
   width: 100%;
 }
+
+
+.chat-bg{
+  background: #e6e6e6;
+}

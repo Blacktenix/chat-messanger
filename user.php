@@ -15,6 +15,9 @@ include("pdo.php");
 <body>
     <?php
     include("header.php");
+    if (!isset($user)) {
+        header("Location:/login.php");
+    }
     ?>
     <h1>First Name:<?php echo htmlspecialchars($user["firstName"]) ?></h1>
     <h1>Last Name:<?php echo htmlspecialchars($user["lastName"]) ?></h1>

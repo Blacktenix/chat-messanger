@@ -92,6 +92,37 @@ include("pdo.php");
         }
         ?>
     </table>
+
+    <h2>Messages</h2>
+    <table>
+        <tr>
+            <th>chatID</th>
+            <th>messageID</th>
+            <th>message</th>
+            <th>userTo</th>
+            <th>useFrom</th>
+        </tr>
+        <?php
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $sql = "SELECT * FROM messages";
+            $stmt = $pdo->prepare($sql);
+            var_dump($stmt->execute());
+            $results = $stmt->fetchAll();
+
+
+            for ($i = 0; $i < count($results); $i++) {
+                $chat = $results[$i];
+                echo "<tr>";
+                echo "<td>" . $chat["chatID"] . "</td>";
+                echo "<td>" . $chat["messageID"] . "</td>";
+                echo "<td>" . $chat["message"] . "</td>";
+                echo "<td>" . $chat["userTo"] . "</td>";
+                echo "<td>" . $chat["userFrom"] . "</td>";
+                echo "</tr>";
+            }
+        }
+        ?>
+    </table>
     <?php
     phpinfo();
     ?>

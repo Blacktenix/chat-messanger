@@ -45,6 +45,17 @@ function get_chat($user1, $user2)
     }
 }
 
+function delete_chat($user1, $user2)
+{
+    global $pdo;
+    $sql = "DELETE FROM chats WHERE ((user1 = :user1 AND user2 = :user2) OR (user1 = :user2 AND user2 = :user1))";
+
+    $stmt = $pdo->prepare($sql);
+
+    // Привязка параметров и выполнение запроса
+    $stmt->execute(['user1' => $user1, 'user2' => $user2]);
+}
+
 function create_chat($user1, $user2)
 {
     global $pdo;
@@ -81,9 +92,9 @@ function add_message($user1, $user2, $chatId)
 function get_messages($user1, $user2, $chatId)
 {
     global $pdo;
-    $sql = "SELECT * FROM messages WHERE  ((userTo = :user1 AND userFrom = :user2) OR (userTo = :user2 AND userFrom = :user1)) AND chatID = :chatId";
+    $sql = "SELECT * FROM messages WHERE  ((userTo = :user1 AND userFrom = :user2) OR (userTo = :user2 AND userFrom = :user1))";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['user1' => $user1, 'user2' => $user2, 'chatId' => $chatId]);
+    $stmt->execute(['user1' => $user1, 'user2' => $user2]);
     $results = $stmt->fetchAll();
     return $results;
 }

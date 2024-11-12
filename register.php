@@ -44,7 +44,7 @@ include("pdo.php");
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // SQL запрос для вставки данных
-        $sql = "INSERT INTO users (firstName, lastName, dateOfBirth, `login`, `password`) VALUES (:firstName, :lastName, :dateOfBirth, :login, :password)";
+        $sql = "INSERT INTO users (userID, firstName, lastName, dateOfBirth, `login`, `passwordHash`) VALUES (0,:firstName, :lastName, :dateOfBirth, :login, :passwordHash)";
 
         // Подготовка SQL запроса
         $stmt = $pdo->prepare($sql);
