@@ -1,6 +1,43 @@
 <?php
 session_start();
 include("pdo.php");
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // SQL запрос для вставки данных
+    $sql = "INSERT INTO users (userID, firstName, lastName, dateOfBirth, `login`, `passwordHash`) VALUES (0,:firstName, :lastName, :dateOfBirth, :login, :passwordHash)";
+
+    // Подготовка SQL запроса
+    $stmt = $pdo->prepare($sql);
+
+    // Данные для вставки
+    $name = $_POST["firstName"];
+    $lname = $_POST["lastName"];
+    $date = $_POST["dateOfBirth"];
+    $login = $_POST["login"];
+    $password = $_POST["password"];
+
+    // логин уже существует
+    if (get_user($login) != null) {
+        header("Location:/register.php");
+        exit();
+    }
+
+    if (strlen($name) == 0 || strlen($name) > 50) {
+        header("Location:/register.php");
+        exit();
+    }
+    if (strlen($lname) == 0 || strlen($lname) > 50) {
+        header("Location:/register.php");
+        exit();
+    }
+
+    // Привязка параметров и выполнение запроса
+    var_dump($stmt->execute(['firstName' => $name, 'lastName' => $lname, 'dateOfBirth' => $date, 'login' => $login, 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]));
+    $_SESSION["login"] = $login;
+    echo "Данные успешно вставлены!";
+
+    header("Location:/user.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,44 +74,8 @@ include("pdo.php");
         <br>
         <input type="password" name="password" id="password">
         <br>
-        <input type="submit">
+        <input type="submit" value="register">
     </form>
-    <?php
-    // Настройки подключения к базе данных
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // SQL запрос для вставки данных
-        $sql = "INSERT INTO users (userID, firstName, lastName, dateOfBirth, `login`, `passwordHash`) VALUES (0,:firstName, :lastName, :dateOfBirth, :login, :passwordHash)";
-
-        // Подготовка SQL запроса
-        $stmt = $pdo->prepare($sql);
-
-        // Данные для вставки
-        $name = $_POST["firstName"];
-        $lname = $_POST["lastName"];
-        $date = $_POST["dateOfBirth"];
-        $login = $_POST["login"];
-        $password = $_POST["password"];
-
-        // TODO: проверка на то, существует ли уже такой юзер
-
-        if (strlen($name) == 0 || strlen($name) > 50) {
-            header("Location:/register.php");
-            exit();
-        }
-        if (strlen($lname) == 0 || strlen($lname) > 50) {
-            header("Location:/register.php");
-            exit();
-        }
-
-        // Привязка параметров и выполнение запроса
-        var_dump($stmt->execute(['firstName' => $name, 'lastName' => $lname, 'dateOfBirth' => $date, 'login' => $login, 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]));
-        $_SESSION["login"] = $login;
-        echo "Данные успешно вставлены!";
-
-        header("Location:/user.php");
-    }
-    ?>
 </body>
 
 </html>

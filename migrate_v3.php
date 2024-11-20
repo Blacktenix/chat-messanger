@@ -21,21 +21,20 @@ try {
     // --------- КОМАНДЫ МИГРАЦИИ ------------
 
 
-    //$pdo->exec("ALTER TABLE `chat`.`users` 
-    //ADD COLUMN `passwordHash` VARCHAR(60) NULL AFTER `password`;");
-    
+    $pdo->exec("ALTER TABLE `chat`.`users` 
+    ADD COLUMN `passwordHash` VARCHAR(60) NULL AFTER `password`;");
+
     $stmt = $pdo->prepare("SELECT `password`, `login` FROM `users`");
     $stmt->execute();
     $results = $stmt->fetchAll();
-    for ($i=0;$i<count($results);$i++){
+    for ($i = 0; $i < count($results); $i++) {
         $data = $results[$i];
         $password = $data["password"];
         $login = $data["login"];
         $hash =  password_hash($password, PASSWORD_DEFAULT);
         $stmt = $pdo->prepare("UPDATE users SET passwordHash = :hash WHERE `login` = :login");
         $stmt->execute(["hash" => $hash, "login" => $login]);
-
-    }   
+    }
     $pdo->exec("ALTER TABLE `chat`.`users` DROP COLUMN `password`;");
 
     // ----------------------------------------

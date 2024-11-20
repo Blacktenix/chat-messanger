@@ -1,8 +1,3 @@
-<?php
-if (isset($_SESSION["login"])) {
-    $user = get_user($_SESSION["login"]);
-}
-?>
 <header class="header">
     <div class="container">
 
@@ -15,7 +10,7 @@ if (isset($_SESSION["login"])) {
                         <?php echo $user["firstName"] . " " . $user["lastName"] ?>
                     </p>
                     <p class="login">
-                        <?php echo $user["login"] ?>
+                        @<?php echo $user["login"] ?>
                     </p>
                 </div>
                 <nav>

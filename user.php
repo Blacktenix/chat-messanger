@@ -1,6 +1,9 @@
 <?php
 session_start();
 include("pdo.php");
+if (!isset($user)) {
+    header("Location:/login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,15 +18,33 @@ include("pdo.php");
 <body>
     <?php
     include("header.php");
-    if (!isset($user)) {
-        header("Location:/login.php");
-    }
     ?>
-    <h1>First Name:<?php echo htmlspecialchars($user["firstName"]) ?></h1>
-    <h1>Last Name:<?php echo htmlspecialchars($user["lastName"]) ?></h1>
-    <h1>Date of birth:<?php echo htmlspecialchars($user["dateOfBirth"]) ?></h1>
-    <h1>Login:<?php echo htmlspecialchars($user["login"]) ?></h1>
-    <h1>Password:<?php echo htmlspecialchars($user["password"]) ?></h1>
+    <div class="profile">
+        <div>
+            <img src="user.png">
+        </div>
+        <div class="profile-item">
+            <strong>First Name: </strong>
+            <span><?php echo htmlspecialchars($user["firstName"]) ?></span>
+        </div>
+
+        <div class="profile-item">
+            <strong>Last Name: </strong>
+            <span><?php echo htmlspecialchars($user["lastName"]) ?></span>
+        </div>
+
+        <div class="profile-item">
+            <strong>Date of birth: </strong>
+            <span><?php echo htmlspecialchars($user["dateOfBirth"]) ?></span>
+        </div>
+
+        <div class="profile-item">
+            <strong>Login: </strong>
+            <span>@<?php echo htmlspecialchars($user["login"]) ?></span>
+        </div class="profile-item">
+
+        <a href="user-edit.php" class="profile-item">Edit Profile</a>
+    </div>
 </body>
 
 </html>
