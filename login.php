@@ -23,7 +23,7 @@ include("pdo.php");
         <br>
         <input type="password" name="password" id="password">
         <br>
-        <input type="submit">
+        <input type="submit" value="Login">
     </form>
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

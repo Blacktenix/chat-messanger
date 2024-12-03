@@ -1,6 +1,4 @@
-
 <?php
-
 // Настройки подключения к базе 
 $host = 'localhost';
 $db   = 'chat';
@@ -113,6 +111,19 @@ function get_user($login)
     }
 }
 
+function update_user($login, $name, $lname, $date)
+{
+    global $pdo;
+    $sql = "UPDATE users SET firstName=:firstName,lastName=:lastName,dateOfBirth=:dateOfBirth  WHERE login = :login";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        'firstName' => $name,
+        'lastName' => $lname,
+        'dateOfBirth' => $date,
+        'login' => $login
+    ]);
+}
+
 function get_chats_for_user($login)
 {
     global $pdo;
@@ -125,4 +136,8 @@ function get_chats_for_user($login)
 
     $results = $stmt->fetchAll();
     return $results;
+}
+
+if (isset($_SESSION["login"])) {
+    $user = get_user($_SESSION["login"]);
 }
